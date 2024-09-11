@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Viceo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css"> <!-- Enlace al CSS compilado desde SASS -->
 </head>
 <body class="bg-light">
     <header class="bg-dark text-light p-3 mb-4">
@@ -17,6 +17,7 @@
                     <li class="nav-item"><a id="home-link" class="nav-link text-light" href="/index.html">Inicio</a></li>
                     <li class="nav-item"><a id="platforms-link" class="nav-link text-light" target="_blank" href="./pages/plaformas.html">Plataformas de Videojuegos</a></li>
                     <li class="nav-item"><a id="calculator-link" class="nav-link text-light" target="_blank" href="./pages/calculadora.html">¿Cuánto me sale el juego?</a></li>
+                    <li class="nav-item"><a id="store-link" class="nav-link text-light" target="_blank" href="./pages/tienda.html">Nuestra Tienda</a></li>
                 </ul>
             </nav>
         </div>
@@ -60,50 +61,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Sección Productos -->
-        <section id="productos" class="productos">
-            <h2>Consiga nuestros productos</h2>
-            <div class="row mb-4">
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="./img/producto1.jpg" class="card-img-top" alt="Producto 1">
-                        <div class="card-body">
-                            <p class="card-title">Peluche Foxy</p>
-                            <p class="card-text">usd$5.99</p>
-                            <button class="btn btn-primary" onclick="agregarAlCarrito('Peluche Foxy', 5.99)">Agregar al Carrito</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="./img/producto2.jpg" class="card-img-top" alt="Teclado gamer">
-                        <div class="card-body">
-                            <p class="card-title">Teclado gamer</p>
-                            <p class="card-text">usd$49.99</p>
-                            <button class="btn btn-primary" onclick="agregarAlCarrito('Teclado gamer', 49.99)">Agregar al Carrito</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="./img/producto3.jpeg" class="card-img-top" alt="Auriculares gamer">
-                        <div class="card-body">
-                            <p class="card-title">Auriculares gamer</p>
-                            <p class="card-text">usd$19.99</p>
-                            <button class="btn btn-primary" onclick="agregarAlCarrito('Auriculares gamer', 19.99)">Agregar al Carrito</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Carrito de Compras -->
-        <section>
-            <h2>Tu Carrito</h2>
-            <ul id="carrito" class="list-group"></ul>
-            <button class="btn btn-danger mt-3" onclick="vaciarCarrito()">Vaciar Carrito</button>
-        </section>
     </main>
 
     <footer class="bg-dark text-light p-3 mt-4">
@@ -113,15 +70,4 @@
             <nav>
                 <ul class="nav">
                     <li class="nav-item"><a id="footer-home-link" class="nav-link text-light" href="/index.html">Inicio</a></li>
-                    <li class="nav-item"><a id="twitter-link" class="nav-link text-light" target="_blank" href="https://x.com">Nuestro Twitter</a></li>
-                    <li class="nav-item"><a id="facebook-link" class="nav-link text-light" target="_blank" href="https://www.facebook.com/">Nuestro Facebook</a></li>
-                </ul>
-            </nav>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS y Script -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./js/app1.js"></script>
-</body>
-</html>
+                    <li class="nav-item"><a
