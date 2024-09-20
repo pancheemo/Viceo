@@ -1,3 +1,14 @@
+.header {
+    background-image: url(../img/wallpaper.png);
+    background-size: cover;
+    height: 95vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 @import 'utils/variables';
 @import 'utils/mixins';
 @import 'utils/extends';

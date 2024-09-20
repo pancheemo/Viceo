@@ -15,10 +15,8 @@ function agregarAlCarrito(nombre, precio) {
     let productoExistente = carrito.find(producto => producto.nombre === nombre);
 
     if (productoExistente) {
-        // Si el producto ya está en el carrito, aumentar la cantidad
         productoExistente.cantidad += 1;
     } else {
-        // Si no, agregar el nuevo producto con cantidad 1
         carrito.push({ nombre: nombre, precio: precio, cantidad: 1 });
     }
 
@@ -38,25 +36,50 @@ function mostrarCarrito() {
     if (carrito.length === 0) {
         carritoElement.innerHTML = '<li class="list-group-item">El carrito está vacío.</li>';
         totalElement.textContent = '$0.00';
+        document.getElementById('comprar-btn').style.display = 'none'; // Ocultar botón comprar si el carrito está vacío
         return;
     }
 
     carrito.forEach((producto, index) => {
         let li = document.createElement('li');
         li.classList.add('list-group-item');
-        li.textContent = `${producto.nombre} - $${(producto.precio * producto.cantidad).toFixed(2)} (x${producto.cantidad})`;
+        li.innerHTML = `
+            ${producto.nombre} - $${(producto.precio * producto.cantidad).toFixed(2)} (x${producto.cantidad})
+            <button class="btn btn-danger btn-sm float-right" onclick="eliminarProducto(${index})">Eliminar</button>
+        `;
         carritoElement.appendChild(li);
         total += producto.precio * producto.cantidad;
     });
 
     totalElement.textContent = `$${total.toFixed(2)}`;
+    document.getElementById('comprar-btn').style.display = 'block'; // Mostrar botón comprar si hay productos
 }
 
-// Vaciar el carrito
+// Eliminar un producto específico del carrito
+function eliminarProducto(index) {
+    let carrito = obtenerCarrito();
+    carrito.splice(index, 1);
+    guardarCarrito(carrito);
+    mostrarCarrito();
+    mostrarMensaje('Producto eliminado del carrito.');
+}
+
+// Vaciar el carrito completamente
 function vaciarCarrito() {
     localStorage.removeItem('carrito');
     mostrarCarrito();
     mostrarMensaje('El carrito ha sido vaciado.');
+}
+
+// Finalizar compra
+function finalizarCompra() {
+    let totalElement = document.getElementById('total').textContent;
+    mostrarMensaje(`Gracias por tu compra. El total es ${totalElement}.`);
+    localStorage.removeItem('carrito');
+    mostrarCarrito();
+
+    // Simulación de formulario de pago
+    document.getElementById('formulario-pago').style.display = 'block';
 }
 
 // Mostrar mensajes al usuario
@@ -65,7 +88,6 @@ function mostrarMensaje(mensaje) {
     mensajeElement.textContent = mensaje;
     mensajeElement.classList.add('alert', 'alert-success');
 
-    // Ocultar el mensaje después de 3 segundos
     setTimeout(() => {
         mensajeElement.textContent = '';
         mensajeElement.classList.remove('alert', 'alert-success');

@@ -66,6 +66,31 @@
             <p>Total: <span id="total">$0.00</span></p> <!-- Mostrar el total del carrito -->
             <div id="mensaje"></div> <!-- Mostrar mensajes de confirmación -->
             <button class="btn btn-danger mt-3" onclick="vaciarCarrito()">Vaciar Carrito</button>
+            <button id="comprar-btn" class="btn btn-success mt-3" onclick="finalizarCompra()" style="display:none;">Comprar</button>
+        </section>
+
+        <!-- Formulario de Pago (Simulación) -->
+        <section id="formulario-pago" style="display:none;" class="mt-4">
+            <h2>Formulario de Pago</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre Completo</label>
+                    <input type="text" class="form-control" id="nombre" value="Juan Pérez">
+                </div>
+                <div class="mb-3">
+                    <label for="tarjeta" class="form-label">Número de Tarjeta</label>
+                    <input type="text" class="form-control" id="tarjeta" value="1234 5678 9123 4567">
+                </div>
+                <div class="mb-3">
+                    <label for="vencimiento" class="form-label">Fecha de Vencimiento</label>
+                    <input type="text" class="form-control" id="vencimiento" value="12/25">
+                </div>
+                <div class="mb-3">
+                    <label for="cvv" class="form-label">CVV</label>
+                    <input type="text" class="form-control" id="cvv" value="123">
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Pago</button>
+            </form>
         </section>
     </main>
 
